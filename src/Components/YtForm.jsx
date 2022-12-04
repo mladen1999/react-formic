@@ -1,12 +1,14 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-
+// https://github.com/gopinav/React-Formik-Tutorials
 const initialValues = {
   initialValues: {
     name: "",
     email: "",
     channel: "",
+    comments: "",
+    address: "",
   },
 };
 
@@ -18,6 +20,7 @@ const validationSchema = Yup.object({
   name: Yup.string().required("Required"),
   email: Yup.string().email("Invalid email format").required("Requred"),
   channel: Yup.string().required("Required"),
+  comments: "",
 });
 
 export const YtForm = () => {
@@ -35,16 +38,39 @@ export const YtForm = () => {
         </div>
 
         <div className="form-control">
-          <label htmlFor="name">Email</label>
+          <label htmlFor="email">Email</label>
           <Field type="text" name="email" id="email" />
           <ErrorMessage name="email" />
         </div>
 
         <div className="form-control">
-          <label htmlFor="name">Channel</label>
+          <label htmlFor="channel">Channel</label>
           <Field type="text" name="channel" id="channel" />
           <ErrorMessage name="channel" />
         </div>
+
+        <div className="form-control">
+          <label htmlFor="comments">Comments</label>
+          <Field as="textarea" id="comments" name="comments" />
+          <ErrorMessage name="comments" />
+        </div>
+
+        <div className="form-control">
+          <label htmlFor="address">Address</label>
+          <Field name="address" id="address">
+            {(props) => {
+              const { field, form, meta } = props;
+              console.log("Render props: ", props);
+              return (
+                <div>
+                  <input type="text" id="address" {...field} />
+                  {meta.touched && meta.error ? <div>{meta.error}</div> : null}
+                </div>
+              );
+            }}
+          </Field>
+        </div>
+
         <button type="submit">Submit</button>
       </Form>
     </Formik>
