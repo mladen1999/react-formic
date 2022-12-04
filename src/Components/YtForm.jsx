@@ -10,6 +10,10 @@ const initialValues = {
     channel: "",
     comments: "",
     address: "",
+    social: {
+      facebook: "",
+      twitter: "",
+    },
   },
 };
 
@@ -21,7 +25,6 @@ const validationSchema = Yup.object({
   name: Yup.string().required("Required"),
   email: Yup.string().email("Invalid email format").required("Requred"),
   channel: Yup.string().required("Required"),
-  comments: "",
 });
 
 export const YtForm = () => {
@@ -72,6 +75,16 @@ export const YtForm = () => {
               );
             }}
           </Field>
+        </div>
+
+        <div className="class-control">
+          <label htmlFor="facebook">Facebook profil</label>
+          <Field type="text" id="facebook" name="social.facebook" />
+        </div>
+
+        <div className="class-control">
+          <label htmlFor="twitter">Twitter profil</label>
+          <Field type="text" id="twitter" name="social.twitter" />
         </div>
 
         <button type="submit">Submit</button>
