@@ -14,6 +14,7 @@ const initialValues = {
       facebook: "",
       twitter: "",
     },
+    phoneNumbers: ["", ""],
   },
 };
 
@@ -85,6 +86,16 @@ export const YtForm = () => {
         <div className="class-control">
           <label htmlFor="twitter">Twitter profil</label>
           <Field type="text" id="twitter" name="social.twitter" />
+        </div>
+
+        <div className="class-control">
+          <label htmlFor="primaryPh">Primary phone number</label>
+          <Field type="text" id="primaryPh" name="phoneNumber[0]" />
+        </div>
+
+        <div className="class-control">
+          <label htmlFor="secondaryPh">Secondary phone number</label>
+          <Field type="text" id="secondaryPh" name="phoneNumber[1]" />
         </div>
 
         <button type="submit">Submit</button>
