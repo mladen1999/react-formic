@@ -1,10 +1,18 @@
 import "./App.css";
-import { YtForm } from "./Components/YtForm";
+// import EnrollmentForm from "./components/EnrollmentForm";
+import Example from "./Components/Example";
+// import RegistrationForm from "./components/RegistrationForm";
+// import FormikContainer from "./components/FormikContainer";
+// import LoginForm from "./components/LoginForm";
 
 function App() {
   return (
     <div className="App">
-      <YtForm />
+      {/* <FormikContainer /> */}
+      {/* <LoginForm /> */}
+      {/* <RegistrationForm /> */}
+      {/* <EnrollmentForm /> */}
+      <Example />
     </div>
   );
 }
